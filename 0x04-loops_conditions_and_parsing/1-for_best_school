@@ -1,4 +1,4 @@
-#!/bin/bash/env bash
+#!/bin/env bash
 # Display "Best School" 10 times with a for loop
 for _ in {0..9}
 do
