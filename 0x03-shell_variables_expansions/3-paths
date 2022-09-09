@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $PATH|uniq|tr ':' '\n'|wc -l
