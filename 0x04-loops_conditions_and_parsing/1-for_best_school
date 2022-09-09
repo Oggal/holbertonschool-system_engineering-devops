@@ -1,6 +1,6 @@
 #!/bin/bash
 # Display "Best School" 10 times with a for loop
-for _ in [0-9]
+for _ in {1..9}
 do
 	echo "Best School"
 done
