@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Display "Best School" 10 times with a for loop
+i=0
+while [ "$((i++))" -lt 10 ]
+do
+    echo "Best School"
+    if [ $i == 9 ]
+    then
+	echo "Hi"
+    fi
+done
