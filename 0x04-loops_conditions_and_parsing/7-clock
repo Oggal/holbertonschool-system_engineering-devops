@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# GONNA PRINT THE TIME BOIS
+hour=0
+while [ "$hour" -le 12 ]
+do
+    echo "Hour: $hour"
+    minute=0
+    while [ "$((++minute))" -lt 60 ]
+    do
+	echo "$minute"
+    done
+    hour="$((hour+1))"
+done
