@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#FIZZBUZZ - Classic Code Interview Test!
+#A favorite of any language!!
+for i in {1..100}
+do
+    out=
+    if [ "$((i%3))" == 0 ]
+    then
+	out+="Fizz"
+    fi
+    if [ "$((i%5))" == 0 ]
+    then
+	out+="Buzz"
+    fi
+    if [ "$out" == "" ]
+    then
+	out="$i"
+    fi
+     echo "$out"
+done
