@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Kill Buzzlightyear
+pkill -15 -f '7-highlander'
