@@ -17,7 +17,7 @@ printf %s "server {
         root /etc/nginx/html;
         index index.html;
     }
-    location /redirect {
+    location /redirect_me {
         return 301 https://en.wikipedia.org/wiki/The_Spanish_Inquisition_(Monty_Python);
     }
 }" > /etc/nginx/sites-available/default
