@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#Update and Install nginx web server
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+#Create Hello World html file
+mkdir -p /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+#configure nginx to listen on port 80
+printf %s "server {
+    listen 80;
+    server_name localhost;
+    location / {
+        root /etc/nginx/html;
+        index index.html;
+    }
+    location /redirect {
+        return 301 https://en.wikipedia.org/wiki/The_Spanish_Inquisition_(Monty_Python);
+    }
+}" > /etc/nginx/sites-available/default
+#restart nginx
+sudo service nginx restart
