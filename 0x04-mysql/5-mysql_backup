@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Backup MySQL databases
+mysqldump -uroot -p --all-databases > backup.sql | gzip -c >"$(date +"%d-%m-%Y_").tar.gz"
