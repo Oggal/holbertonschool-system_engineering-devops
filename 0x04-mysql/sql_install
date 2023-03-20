@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Install MySQL For Holberton School Web Servers
+# By Philip Taylor (Oggal)
+apt update
+apt install wget -y
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+echo "In Prompt, Choose Ubuntu Bionic"
+echo "The next prompt shoes MySQL 8.0 chosen by default. Choose the first
+option..."
+echo "In Next Prompt, Choose MySQL 5.7"
+echo "Finally, Choose Ok, then Ok again."
+echo "Press any key to continue..."
+while [ true ] ; do
+    read -t 3 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    fi
+    echo "Waiting for the next 3 seconds..."
+done
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
+apt-get update
+apt-cache policy mysql-server
+echo "Good work! Now you can install MySQL Server 5.7"
+
+echo "Press any key to continue..."
+while [ true ] ; do
+    read -t 3 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    fi
+done
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+
+mysql --version
