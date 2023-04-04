@@ -7,8 +7,13 @@ def main():
     """Gather data from an API"""
     employee_ID = int(argv[1])
     URL = 'https://jsonplaceholder.typicode.com'
-    employee_json = requests.get("{}/users".format(URL))\
-        .json()[employee_ID - 1]
+    reply = requests.get("{}/users".format(URL))\
+        .json()
+    for item in reply:
+        if item['id'] == employee_ID:
+            employee_json = item
+            break
+    
     employee_name = employee_json.get('name')
     task_json = requests.get("{}/todos".format(URL)).json()
 
@@ -19,7 +24,7 @@ def main():
     print("Employee {} is done with tasks({}/{}):".format(
         employee_name, len(tasks_done), tasks_total))
     for task in task_list:
-        if not task.get('completed'):
+        if task.get('completed'):
             print("\t {}".format(task.get('title')))
 
 
