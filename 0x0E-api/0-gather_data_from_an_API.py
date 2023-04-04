@@ -9,9 +9,6 @@ def main():
     URL = 'https://jsonplaceholder.typicode.com'
     employee_json = requests.get("{}/users".format(URL))\
         .json()[employee_ID - 1]
-
-    print(employee_json)
-    print(type(employee_json))
     employee_name = employee_json.get('name')
     task_json = requests.get("{}/todos".format(URL)).json()
 
