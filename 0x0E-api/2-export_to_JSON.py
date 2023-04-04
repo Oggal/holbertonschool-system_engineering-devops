@@ -33,7 +33,7 @@ def get_todos(ID: int) -> list:
 def build_json_data(ID: int) -> list:
     """Format data for JSON"""
     tasks = get_todos(ID)
-    name = get_employee(ID)
+    name = get_employee(ID).get('username')
     data = []
     for task in tasks:
         done = task['completed']
