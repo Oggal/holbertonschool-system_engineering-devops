@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 import requests
-from sys import argv
+import sys
 
 
 def main():
     """Gather data from an API"""
-    employee_ID = int(argv[1])
+    employee_ID = int(sys.argv[1])
     URL = 'https://jsonplaceholder.typicode.com'
     reply = requests.get("{}/users".format(URL))\
         .json()
     for item in reply:
         if item['id'] == employee_ID:
             employee_json = item
-            break
 
     employee_name = employee_json.get('name')
     task_json = requests.get("{}/todos".format(URL)).json()
